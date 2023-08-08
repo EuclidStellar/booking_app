@@ -12,7 +12,6 @@ func main (){
 	var bookings = []string{} // slice 
 	// var bookings [50]string  // array of fixed size
 
- 
 	fmt.Println("--------------------------------------------------------------------------")	
 
 	fmt.Println("                         welcome to" , conference,"!                       "  )
@@ -25,6 +24,13 @@ func main (){
 	// we will be using %v for printing the value of the variable
 
 	// Now we will betaking data from user using fmt.Scan
+
+
+
+	// now we will be using loop to amke our code more efficient
+
+	for {
+
 
 	var Firstname string 
 	var usertickets uint
@@ -58,9 +64,13 @@ func main (){
 	bookings = append(bookings, Firstname + " " + lastname)
 
 	fmt.Printf("Bookings: %v\n", bookings)
-	fmt.Printf("type of slice %T\n", bookings)
+
+	//fmt.Printf("type of slice %T\n", bookings)
+
 	fmt.Printf("first value is %v\n", bookings[0])
+	
 	//fmt.Printf("last name is  %v\n", bookings[1])
+
 	fmt.Printf("length of slice  is %v\n", len(bookings))  
 
 	// as our array is of fixed size we will be using slices for gettinga any amount of data 
@@ -74,5 +84,11 @@ func main (){
 	fmt.Println("Number of tickets remaining:", remaining_tickets)
 
 
+
+
+
+	}
+ 
+	
 	
 }
