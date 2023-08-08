@@ -43,8 +43,7 @@ func main() {
 
 		if isvalid && isvalidd {
 
-			remaining_tickets = remaining_tickets - usertickets
-			fmt.Println("Number of tickets remaining:", remaining_tickets)
+			bookticket(remaining_tickets, bookings, Firstname, lastname, email, usertickets)
 
 		} else if usertickets > remaining_tickets {
 			fmt.Println("Sorry! We only have", remaining_tickets, "tickets left.")
@@ -82,8 +81,6 @@ func main() {
 		*/
 
 		getfirstname(bookings)
-		fmt.Println("--------------------------------------------------------------------------")
-		fmt.Printf("Hello %v %v, you have booked %v tickets and you will get confirmation of tickets on your %v\n", Firstname, lastname, usertickets, email)
 
 	}
 
@@ -107,6 +104,18 @@ func validate(Firstname string, lastname string, email string, usertickets uint)
 	isvalidd := strings.Contains(email, ".") && usertickets > 0
 
 	return isvalid, isvalidd
+
+}
+
+func bookticket(remaining_tickets uint, bookings []string, Firstname string, lastname string, email string, usertickets uint) {
+
+	remaining_tickets = remaining_tickets - usertickets
+	bookings = append(bookings, Firstname+" "+lastname)
+
+	fmt.Println("--------------------------------------------------------------------------")
+	fmt.Printf("Bookings: %v\n", bookings)
+	fmt.Println("Number of tickets remaining:", remaining_tickets)
+	fmt.Printf("Hello %v %v, you have booked %v tickets and you will get confirmation of tickets on your %v\n", Firstname, lastname, usertickets, email)
 
 }
 
@@ -140,10 +149,6 @@ func getUserInput() (string, string, string, uint) {
 		bookings[0] = Firstname + " " + lastname
 
 		checking the validity of the data entered by user
-
-		bookings = append(bookings, Firstname+" "+lastname)
-
-		fmt.Printf("Bookings: %v\n", bookings)
 
 		//fmt.Printf("type of slice %T\n", bookings)
 
