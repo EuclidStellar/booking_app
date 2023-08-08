@@ -84,7 +84,7 @@ func main() {
 			fmt.Println("Sorry! No more tickets available. Please try next year.")
 			break
 
-		}else{
+		} else {
 			fmt.Println("Please enter the valid data")
 			continue
 		}
