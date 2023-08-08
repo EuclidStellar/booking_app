@@ -1,8 +1,9 @@
-package main 
+package main
 
 import (
 	"fmt"
-	//"string"
+	"strings"
+	
 )
 func main (){
 
@@ -36,6 +37,7 @@ func main (){
 	var usertickets uint
 	var lastname string
 	var email string
+	
 
 	
 	fmt.Println("Enter your first name:")
@@ -68,21 +70,29 @@ func main (){
 	//fmt.Printf("type of slice %T\n", bookings)
 
 	fmt.Printf("first value is %v\n", bookings[0])
-	
+
 	//fmt.Printf("last name is  %v\n", bookings[1])
 
 	fmt.Printf("length of slice  is %v\n", len(bookings))  
 
-	// as our array is of fixed size we will be using slices for gettinga any amount of data 
-
-
-
-	fmt.Printf("they are all the bookings %v\n :" , bookings)
-
 	remaining_tickets = remaining_tickets - usertickets
-
 	fmt.Println("Number of tickets remaining:", remaining_tickets)
 
+
+	// as our array is of fixed size we will be using slices for gettinga any amount of data 
+
+	firstnames := []string{}
+	for _, booking := range bookings {
+		names:= strings.Fields(booking)
+		firstnames = append(firstnames, names[0])
+
+		
+	}
+
+
+	fmt.Printf("they are all the bookings %v\n :" , firstnames)
+
+	
 
 
 
