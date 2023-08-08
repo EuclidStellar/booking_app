@@ -75,10 +75,16 @@ func main (){
 
 	fmt.Printf("length of slice  is %v\n", len(bookings))  
 
+
+	if usertickets > remaining_tickets {
+		fmt.Println("Sorry! We only have", remaining_tickets, "tickets left.")
+		break
+	} else {
+
 	remaining_tickets = remaining_tickets - usertickets
 	fmt.Println("Number of tickets remaining:", remaining_tickets)
 
-
+	}
 	// as our array is of fixed size we will be using slices for gettinga any amount of data 
 
 	firstnames := []string{}
