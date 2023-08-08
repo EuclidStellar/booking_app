@@ -90,13 +90,9 @@ func main() {
 		}
 		// as our array is of fixed size we will be using slices for gettinga any amount of data
 
-		firstnames := []string{}
-		for _, booking := range bookings {
-			names := strings.Fields(booking)
-			firstnames = append(firstnames, names[0])
+		// gonna use function of string package for getting the first name of the user
 
-		}
-		fmt.Printf("they are all the bookings %v\n", firstnames)
+		getfirstname(bookings)
 
 		// now we will be using if else statement for checking the condition
 
@@ -106,5 +102,17 @@ func main() {
 		fmt.Printf("Hello %v %v, you have booked %v tickets and you will get confirmation of tickets on your %v\n", Firstname, lastname, usertickets, email)
 
 	}
+
+}
+
+func getfirstname(bookings []string) []string {
+
+	firstnames := []string{}
+	for _, booking := range bookings {
+		names := strings.Fields(booking)
+		firstnames = append(firstnames, names[0])
+	}
+	fmt.Printf("they are all the bookings %v\n", firstnames)
+	return firstnames
 
 }
