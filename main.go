@@ -105,6 +105,7 @@ func main() {
 
 }
 
+
 func getfirstname(bookings []string) []string {
 
 	firstnames := []string{}
