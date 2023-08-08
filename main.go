@@ -9,7 +9,7 @@ func main (){
 	var conference = "Go Conference"
 	const tickets = 50
 	var remaining_tickets uint = 50
-	var bookings []string // slice 
+	var bookings = []string{} // slice 
 	// var bookings [50]string  // array of fixed size
 
  
@@ -66,8 +66,13 @@ func main (){
 	// as our array is of fixed size we will be using slices for gettinga any amount of data 
 
 
+
+	fmt.Printf("they are all the bookings %v\n :" , bookings)
+
 	remaining_tickets = remaining_tickets - usertickets
 
 	fmt.Println("Number of tickets remaining:", remaining_tickets)
+
+
 	
 }
