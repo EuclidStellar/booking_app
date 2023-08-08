@@ -92,13 +92,23 @@ func main (){
 
 	fmt.Printf("they are all the bookings %v\n :" , firstnames)
 
-	
 
+	// now we will be using if else statement for checking the condition
 
+	//noticketsremaining := remaining_tickets == 0
+
+	if remaining_tickets == 0  {
+
+		//end the program 
+
+		fmt.Println("Sorry! No more tickets available. Please try next year.")
+		break
 
 
 	}
  
 	
 	
+}
+
 }
