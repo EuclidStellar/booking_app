@@ -84,7 +84,7 @@ func main (){
 	firstnames := []string{}
 	for _, booking := range bookings {
 		names:= strings.Fields(booking)
-		firstnames = append(firstnames, names[0])
+		firstnames = append(firstnames, names[1])
 
 		
 	}
