@@ -78,7 +78,8 @@ func main (){
 
 	if usertickets > remaining_tickets {
 		fmt.Println("Sorry! We only have", remaining_tickets, "tickets left.")
-		break
+		//break
+		continue // it will alow the user to enter the data again
 	} else {
 
 	remaining_tickets = remaining_tickets - usertickets
