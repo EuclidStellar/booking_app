@@ -47,9 +47,6 @@ func main() {
 		fmt.Println("Enter the number of tickets you want to book:")
 		fmt.Scan(&usertickets)
 
-		fmt.Println("--------------------------------------------------------------------------")
-		fmt.Printf("Hello %v %v, you have booked %v tickets and you will get confirmation of tickets on your %v\n", Firstname, lastname, usertickets, email)
-
 		// we will be using %T for checking the type of the variable
 
 		//fmt.Printf("username is of type %T\n", username)
@@ -68,7 +65,14 @@ func main() {
 
 		fmt.Printf("length of slice  is %v\n", len(bookings))
 
-		if usertickets > remaining_tickets {
+		if remaining_tickets == 0 {
+
+			//end the program
+
+			fmt.Println("Sorry! No more tickets available. Please try next year.")
+			break
+
+		} else if usertickets > remaining_tickets {
 			fmt.Println("Sorry! We only have", remaining_tickets, "tickets left.")
 			//break
 			continue // it will alow the user to enter the data again
@@ -86,21 +90,14 @@ func main() {
 			firstnames = append(firstnames, names[0])
 
 		}
-
-		fmt.Printf("they are all the bookings %v\n :", firstnames)
+		fmt.Printf("they are all the bookings %v\n", firstnames)
 
 		// now we will be using if else statement for checking the condition
 
 		//noticketsremaining := remaining_tickets == 0
 
-		if remaining_tickets == 0 {
-
-			//end the program
-
-			fmt.Println("Sorry! No more tickets available. Please try next year.")
-			break
-
-		}
+		fmt.Println("--------------------------------------------------------------------------")
+		fmt.Printf("Hello %v %v, you have booked %v tickets and you will get confirmation of tickets on your %v\n", Firstname, lastname, usertickets, email)
 
 	}
 
