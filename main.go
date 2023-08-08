@@ -6,23 +6,31 @@ import (
 )
 
 var conference = "Go Conference"
-
 const tickets = 50
+var bookings = []string{} 
 
-var remaining_tickets uint = 50
-var bookings = []string{} // slice
+
+// slice
 // var bookings [50]string  // array of fixed size
+
 
 func main() {
 
-	fmt.Println("--------------------------------------------------------------------------")
+	var remaining_tickets uint = 50
 
+	fmt.Println("--------------------------------------------------------------------------")
 	fmt.Println("                         welcome to", conference, "!                       ")
 	fmt.Println("--------------------------------------------------------------------------")
+
+	
 	fmt.Println("Get your tickets here!")
+
 	//fmt.Println("Number of tickets available:", tickets)
+
 	fmt.Printf("Number of tickets available: %v\n", tickets)
 	fmt.Println("Number of tickets remaining:", remaining_tickets)
+
+
 
 	// Note:-
 
@@ -36,10 +44,13 @@ func main() {
 
 	*/
 
-
 	// for loop
 
+
+
 	for remaining_tickets > 0 && len(bookings) < 50 {
+
+
 
 		// getuserinput function
 
@@ -57,7 +68,20 @@ func main() {
 
 		if isvalid && isvalidd {
 
-			bookticket(remaining_tickets, bookings, Firstname, lastname, email, usertickets)
+			
+
+			remaining_tickets = remaining_tickets - usertickets
+			fmt.Println("Number of tickets remaining:", remaining_tickets)
+
+
+			// bookticket function
+
+
+			bookticket( bookings, Firstname, lastname, email, usertickets)
+
+			//fmt.Println("--------------------------------------------------------------------------")
+
+
 
 		} else if usertickets > remaining_tickets {
 			fmt.Println("Sorry! We only have", remaining_tickets, "tickets left.")
@@ -69,6 +93,7 @@ func main() {
 		} else if remaining_tickets == 0 {
 
 			//end the program
+
 
 			fmt.Println("Sorry! No more tickets available. Please try next year.")
 			break
@@ -95,36 +120,61 @@ func main() {
 
 
 		*/
-		//var firstnames []string
-		//getfirstname(bookings , firstnames)
 
-		// bookticket function
+		// getfirstname function
 
-		bookticket(remaining_tickets, bookings, Firstname, lastname, email, usertickets)
+		// var firstnames []string
+		// getfirstname(bookings, firstnames)
+
+		// bookings := []string{}
+		// firstnames := extractFirstNames(bookings)
+
+		// fmt.Printf("They are all the bookings: %v\n", firstnames)
 
 
-
-		var firstnames []string
-		getfirstname(bookings, firstnames)
 
 	}
 
 }
 
+// func getfirstname(bookings []string, firstnames []string) ([]string, []string) {
+
+// 	for _, booking := range bookings {
+// 		names := strings.Fields(booking)
+// 		firstnames = append(firstnames, names[0])
+// 		fmt.Printf("first value is %v\n", bookings[0])
+// 	}
+// 	fmt.Printf("they are all the bookings %v\n", firstnames)
+// 	return bookings, firstnames
+
+// }
 
 
 
+// func extractFirstNames(bookings []string) []string {
+// 	firstnames := []string{}
+// 	for _, booking := range bookings {
+// 		names := strings.Fields(booking)
+// 		if len(names) > 0 {
+// 			firstnames = append(firstnames, names[0])
+// 		}
+// 	}
+// 	return firstnames
+// }
 
-func getfirstname(bookings []string, firstnames []string) ([]string, []string) {
 
-	for _, booking := range bookings {
-		names := strings.Fields(booking)
-		firstnames = append(firstnames, names[0])
-	}
-	fmt.Printf("they are all the bookings %v\n", firstnames)
-	return bookings, firstnames
 
-}
+// func getfirstname(bookings []string, firstnames []string) ([]string, []string) {
+// 	for _, booking := range bookings {
+// 		names := strings.Fields(booking)
+// 		if len(names) > 0 {
+// 			firstnames = append(firstnames, names[0])
+// 		}
+// 	}
+// 	fmt.Printf("First value is %v\n", firstnames[0])
+// 	fmt.Printf("They are all the bookings: %v\n", firstnames)
+// 	return bookings, firstnames
+// }
 
 
 
@@ -141,25 +191,22 @@ func validate(Firstname string, lastname string, email string, usertickets uint)
 
 
 
-func bookticket(remaining_tickets uint, bookings []string, Firstname string, lastname string, email string, usertickets uint) (string, uint) {
+func bookticket(bookings []string, Firstname string, lastname string, email string, usertickets uint) string {
 
-	remaining_tickets = remaining_tickets - usertickets
 	bookings = append(bookings, Firstname+" "+lastname)
 
 	fmt.Println("--------------------------------------------------------------------------")
 	fmt.Printf("Bookings: %v\n", bookings)
-	fmt.Println("Number of tickets remaining:", remaining_tickets)
 	fmt.Printf("Hello %v %v, you have booked %v tickets and you will get confirmation of tickets on your %v\n", Firstname, lastname, usertickets, email)
 	fmt.Println("--------------------------------------------------------------------------")
 
-	return Firstname, remaining_tickets
+	return Firstname
 }
 
 
 
 
 func getUserInput() (string, string, string, uint) {
-
 
 	var Firstname string
 	var usertickets uint
@@ -193,7 +240,7 @@ func getUserInput() (string, string, string, uint) {
 
 		//fmt.Printf("type of slice %T\n", bookings)
 
-		fmt.Printf("first value is %v\n", bookings[0])
+
 
 		//fmt.Printf("last name is  %v\n", bookings[1])
 
@@ -202,5 +249,5 @@ func getUserInput() (string, string, string, uint) {
 	*/
 
 
-	
+
 }
