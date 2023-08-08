@@ -30,7 +30,7 @@ func main (){
 
 	// now we will be using loop to amke our code more efficient
 
-	for {
+	for  remaining_tickets > 0 && len(bookings) < 50{
 
 
 	var Firstname string 
