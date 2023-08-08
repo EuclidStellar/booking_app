@@ -53,6 +53,10 @@ func main() {
 
 		//bookings[0] = Firstname + " " + lastname
 
+		// checking the validity of the data entered by user
+
+		isvalid := len(Firstname) >= 2 && len(lastname) >= 2 && strings.Contains(email, "@") && strings.Contains(email, ".") && usertickets > 0
+
 		bookings = append(bookings, Firstname+" "+lastname)
 
 		fmt.Printf("Bookings: %v\n", bookings)
@@ -63,24 +67,26 @@ func main() {
 
 		//fmt.Printf("last name is  %v\n", bookings[1])
 
-		fmt.Printf("length of slice  is %v\n", len(bookings))
+		//fmt.Printf("length of slice  is %v\n", len(bookings))
 
-		if remaining_tickets == 0 {
+		if isvalid {
 
-			//end the program
-
-			fmt.Println("Sorry! No more tickets available. Please try next year.")
-			break
+			remaining_tickets = remaining_tickets - usertickets
+			fmt.Println("Number of tickets remaining:", remaining_tickets)
 
 		} else if usertickets > remaining_tickets {
 			fmt.Println("Sorry! We only have", remaining_tickets, "tickets left.")
 			//break
 			continue // it will alow the user to enter the data again
-		} else {
+		} else if remaining_tickets == 0 {
 
-			remaining_tickets = remaining_tickets - usertickets
-			fmt.Println("Number of tickets remaining:", remaining_tickets)
+			//end the program
+			fmt.Println("Sorry! No more tickets available. Please try next year.")
+			break
 
+		}else{
+			fmt.Println("Please enter the valid data")
+			continue
 		}
 		// as our array is of fixed size we will be using slices for gettinga any amount of data
 
