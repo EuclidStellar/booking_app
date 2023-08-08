@@ -5,13 +5,15 @@ import (
 	"strings"
 )
 
-func main() {
+var conference = "Go Conference"
 
-	var conference = "Go Conference"
-	const tickets = 50
-	var remaining_tickets uint = 50
-	var bookings = []string{} // slice
-	// var bookings [50]string  // array of fixed size
+const tickets = 50
+
+var remaining_tickets uint = 50
+var bookings = []string{} // slice
+// var bookings [50]string  // array of fixed size
+
+func main() {
 
 	fmt.Println("--------------------------------------------------------------------------")
 
@@ -22,7 +24,8 @@ func main() {
 	fmt.Printf("Number of tickets available: %v\n", tickets)
 	fmt.Println("Number of tickets remaining:", remaining_tickets)
 
-	// Note
+	// Note:-
+
 
 	/*
 		we will be using %v for printing the value of the variable
@@ -33,11 +36,22 @@ func main() {
 
 	*/
 
+
 	// for loop
 
 	for remaining_tickets > 0 && len(bookings) < 50 {
 
+		// getuserinput function
+
+
+
 		Firstname, lastname, email, usertickets := getUserInput()
+
+
+
+		// validate function
+
+
 
 		isvalid, isvalidd := validate(Firstname, lastname, email, usertickets)
 
@@ -50,7 +64,7 @@ func main() {
 			//break
 			continue
 
-			// it will alow the user to enter the data again
+			// continue will alow the user to enter the data again
 
 		} else if remaining_tickets == 0 {
 
@@ -68,35 +82,52 @@ func main() {
 
 		/*
 
+
+			we will be using slice for storing the data of the user
+
 			as our array is of fixed size we will be using slices for gettinga any amount of data
 
 			gonna use function of string package for getting the first name of the user
-
-
 
 			now we will be using if else statement for checking the condition
 
 			noticketsremaining := remaining_tickets == 0
 
-		*/
 
-		getfirstname(bookings)
+		*/
+		//var firstnames []string
+		//getfirstname(bookings , firstnames)
+
+		// bookticket function
+
+		bookticket(remaining_tickets, bookings, Firstname, lastname, email, usertickets)
+
+
+
+		var firstnames []string
+		getfirstname(bookings, firstnames)
 
 	}
 
 }
 
-func getfirstname(bookings []string) []string {
 
-	firstnames := []string{}
+
+
+
+func getfirstname(bookings []string, firstnames []string) ([]string, []string) {
+
 	for _, booking := range bookings {
 		names := strings.Fields(booking)
 		firstnames = append(firstnames, names[0])
 	}
 	fmt.Printf("they are all the bookings %v\n", firstnames)
-	return firstnames
+	return bookings, firstnames
 
 }
+
+
+
 
 func validate(Firstname string, lastname string, email string, usertickets uint) (bool, bool) {
 
@@ -107,7 +138,10 @@ func validate(Firstname string, lastname string, email string, usertickets uint)
 
 }
 
-func bookticket(remaining_tickets uint, bookings []string, Firstname string, lastname string, email string, usertickets uint) {
+
+
+
+func bookticket(remaining_tickets uint, bookings []string, Firstname string, lastname string, email string, usertickets uint) (string, uint) {
 
 	remaining_tickets = remaining_tickets - usertickets
 	bookings = append(bookings, Firstname+" "+lastname)
@@ -116,10 +150,17 @@ func bookticket(remaining_tickets uint, bookings []string, Firstname string, las
 	fmt.Printf("Bookings: %v\n", bookings)
 	fmt.Println("Number of tickets remaining:", remaining_tickets)
 	fmt.Printf("Hello %v %v, you have booked %v tickets and you will get confirmation of tickets on your %v\n", Firstname, lastname, usertickets, email)
+	fmt.Println("--------------------------------------------------------------------------")
 
+	return Firstname, remaining_tickets
 }
 
+
+
+
 func getUserInput() (string, string, string, uint) {
+
+
 	var Firstname string
 	var usertickets uint
 	var lastname string
@@ -159,4 +200,7 @@ func getUserInput() (string, string, string, uint) {
 		//fmt.Printf("length of slice  is %v\n", len(bookings))
 
 	*/
+
+
+	
 }
