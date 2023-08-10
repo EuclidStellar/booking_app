@@ -22,7 +22,7 @@ func main() {
 	fmt.Println("                         welcome to", conference, "!                       ")
 	fmt.Println("--------------------------------------------------------------------------")
 
-	
+
 	fmt.Println("Get your tickets here!")
 
 	//fmt.Println("Number of tickets available:", tickets)
@@ -137,44 +137,65 @@ func main() {
 
 }
 
-// func getfirstname(bookings []string, firstnames []string) ([]string, []string) {
-
-// 	for _, booking := range bookings {
-// 		names := strings.Fields(booking)
-// 		firstnames = append(firstnames, names[0])
-// 		fmt.Printf("first value is %v\n", bookings[0])
-// 	}
-// 	fmt.Printf("they are all the bookings %v\n", firstnames)
-// 	return bookings, firstnames
-
-// }
 
 
 
-// func extractFirstNames(bookings []string) []string {
-// 	firstnames := []string{}
-// 	for _, booking := range bookings {
-// 		names := strings.Fields(booking)
-// 		if len(names) > 0 {
-// 			firstnames = append(firstnames, names[0])
-// 		}
-// 	}
-// 	return firstnames
-// }
+/*
+
+
+func getfirstname(bookings []string, firstnames []string) ([]string, []string) {
+
+	for _, booking := range bookings {
+		names := strings.Fields(booking)
+		firstnames = append(firstnames, names[0])
+		fmt.Printf("first value is %v\n", bookings[0])
+	}
+	fmt.Printf("they are all the bookings %v\n", firstnames)
+	return bookings, firstnames
+
+}
+
+
+*/
+
+
+/*
+
+
+func extractFirstNames(bookings []string) []string {
+	firstnames := []string{}
+	for _, booking := range bookings {
+		names := strings.Fields(booking)
+		if len(names) > 0 {
+			firstnames = append(firstnames, names[0])
+		}
+	}
+	return firstnames
+}
+
+
+*/
 
 
 
-// func getfirstname(bookings []string, firstnames []string) ([]string, []string) {
-// 	for _, booking := range bookings {
-// 		names := strings.Fields(booking)
-// 		if len(names) > 0 {
-// 			firstnames = append(firstnames, names[0])
-// 		}
-// 	}
-// 	fmt.Printf("First value is %v\n", firstnames[0])
-// 	fmt.Printf("They are all the bookings: %v\n", firstnames)
-// 	return bookings, firstnames
-// }
+
+/*
+
+
+func getfirstname(bookings []string, firstnames []string) ([]string, []string) {
+	for _, booking := range bookings {
+		names := strings.Fields(booking)
+		if len(names) > 0 {
+			firstnames = append(firstnames, names[0])
+		}
+	}
+	fmt.Printf("First value is %v\n", firstnames[0])
+	fmt.Printf("They are all the bookings: %v\n", firstnames)
+	return bookings, firstnames
+}
+
+
+*/
 
 
 
@@ -228,6 +249,8 @@ func getUserInput() (string, string, string, uint) {
 	return Firstname, lastname, email, usertickets
 
 	//Extra code :-
+
+	
 
 	/*
 		we will be using %T for checking the type of the variable
