@@ -3,6 +3,8 @@ package main
 import (
 	"fmt"
 	//"strings"
+	"booking_app/helper"
+
 )
 
 var conference = "Go Conference"
@@ -64,7 +66,7 @@ func main() {
 
 
 
-		isvalid, isvalidd := validate(Firstname, lastname, email, usertickets)
+		isvalid, isvalidd := helper.Validate(Firstname, lastname, email, usertickets)
 
 		if isvalid && isvalidd {
 
@@ -103,39 +105,64 @@ func main() {
 			continue
 		}
 
-		//Note :-
-
-		/*
-
-
-			we will be using slice for storing the data of the user
-
-			as our array is of fixed size we will be using slices for gettinga any amount of data
-
-			gonna use function of string package for getting the first name of the user
-
-			now we will be using if else statement for checking the condition
-
-			noticketsremaining := remaining_tickets == 0
-
-
-		*/
-
-		// getfirstname function
-
-		// var firstnames []string
-		// getfirstname(bookings, firstnames)
-
-		// bookings := []string{}
-		// firstnames := extractFirstNames(bookings)
-
-		// fmt.Printf("They are all the bookings: %v\n", firstnames)
+		
 
 
 
 	}
 
 }
+
+
+
+
+
+
+
+
+
+func bookticket(bookings []string, Firstname string, lastname string, email string, usertickets uint) string {
+
+	bookings = append(bookings, Firstname+" "+lastname)
+
+	fmt.Println("--------------------------------------------------------------------------")
+	fmt.Printf("Bookings: %v\n", bookings)
+	fmt.Printf("Hello %v %v, you have booked %v tickets and you will get confirmation of tickets on your %v\n", Firstname, lastname, usertickets, email)
+	fmt.Println("--------------------------------------------------------------------------")
+
+	return Firstname
+}
+
+
+
+
+func getUserInput() (string, string, string, uint) {
+
+	var Firstname string
+	var usertickets uint
+	var lastname string
+	var email string
+
+	fmt.Println("Enter your first name:")
+	fmt.Scan(&Firstname)
+
+	fmt.Println("Enter your last name:")
+	fmt.Scan(&lastname)
+
+	fmt.Println("Enter your email:")
+	fmt.Scan(&email)
+
+	fmt.Println("Enter the number of tickets you want to book:")
+	fmt.Scan(&usertickets)
+
+	return Firstname, lastname, email, usertickets
+
+	
+
+
+}
+
+
 
 
 
@@ -202,44 +229,42 @@ func getfirstname(bookings []string, firstnames []string) ([]string, []string) {
 
 
 
+//Note :-
 
-func bookticket(bookings []string, Firstname string, lastname string, email string, usertickets uint) string {
-
-	bookings = append(bookings, Firstname+" "+lastname)
-
-	fmt.Println("--------------------------------------------------------------------------")
-	fmt.Printf("Bookings: %v\n", bookings)
-	fmt.Printf("Hello %v %v, you have booked %v tickets and you will get confirmation of tickets on your %v\n", Firstname, lastname, usertickets, email)
-	fmt.Println("--------------------------------------------------------------------------")
-
-	return Firstname
-}
+		/*
 
 
+			we will be using slice for storing the data of the user
+
+			as our array is of fixed size we will be using slices for gettinga any amount of data
+
+			gonna use function of string package for getting the first name of the user
+
+			now we will be using if else statement for checking the condition
+
+			noticketsremaining := remaining_tickets == 0
 
 
-func getUserInput() (string, string, string, uint) {
+		*/
 
-	var Firstname string
-	var usertickets uint
-	var lastname string
-	var email string
+		// getfirstname function
 
-	fmt.Println("Enter your first name:")
-	fmt.Scan(&Firstname)
+		// var firstnames []string
+		// getfirstname(bookings, firstnames)
 
-	fmt.Println("Enter your last name:")
-	fmt.Scan(&lastname)
+		// bookings := []string{}
+		// firstnames := extractFirstNames(bookings)
 
-	fmt.Println("Enter your email:")
-	fmt.Scan(&email)
+		// fmt.Printf("They are all the bookings: %v\n", firstnames)
 
-	fmt.Println("Enter the number of tickets you want to book:")
-	fmt.Scan(&usertickets)
 
-	return Firstname, lastname, email, usertickets
 
-	//Extra code :-
+
+
+
+
+
+		//Extra code :-
 
 	
 
@@ -261,7 +286,3 @@ func getUserInput() (string, string, string, uint) {
 		//fmt.Printf("length of slice  is %v\n", len(bookings))
 
 	*/
-
-
-
-}
