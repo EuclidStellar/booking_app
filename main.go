@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"strings"
+	//"strings"
 )
 
 var conference = "Go Conference"
@@ -199,15 +199,6 @@ func getfirstname(bookings []string, firstnames []string) ([]string, []string) {
 
 
 
-
-func validate(Firstname string, lastname string, email string, usertickets uint) (bool, bool) {
-
-	isvalid := len(Firstname) >= 2 && len(lastname) >= 2 && strings.Contains(email, "@")
-	isvalidd := strings.Contains(email, ".") && usertickets > 0
-
-	return isvalid, isvalidd
-
-}
 
 
 
