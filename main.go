@@ -12,7 +12,6 @@ const tickets = 50
 var bookings = []string{} 
 
 
-// slice
 // var bookings [50]string  // array of fixed size
 
 
